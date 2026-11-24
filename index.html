@@ -1,164 +1,359 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colegio Pedro Poveda - Proyecto de Convivencia</title>
-    <!-- Hoja de estilos principal -->
-    <link rel="stylesheet" href="estilos.css">
-    <!-- Librería jQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <!-- Archivo de funciones jQuery -->
-    <script src="funciones.js"></script>
+    <title>Implementación de Normas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Nunito:wght@400;600;700;800&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html{
+    scroll-behavior:smooth;
+}
+body{
+    font-family:'Nunito',sans-serif;
+    color:#344653;
+    background-color:#ffffff;
+    line-height:1.6;
+}
+/* ENCABEZADO */
+header{
+    background-color:#d7ecff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 4%;
+    gap:20px;
+    flex-wrap:wrap;
+}
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:#173c50;
+}
+.logo-area img{
+    width:55px;
+    height:55px;
+    object-fit:contain;
+    border-radius:50%;
+}
+.logo-area div{
+    display:flex;
+    flex-direction:column;
+}
+.logo-area strong{
+    font-size:1.1rem;
+}
+.logo-area span{
+    font-size:0.85rem;
+}
+nav {
+    list-style:none;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+nav a{
+    text-decoration:none;
+    color:#173c50;
+    font-weight:800;
+    font-size:0.9rem;
+    transition:0.3s;
+}
+nav a:hover{
+    color:#2999bd;
+}
+/* PORTADA */
+.hero{
+    min-height:470px;
+    background:
+    linear-gradient(rgba(10,30,45,0.55),rgba(10,30,45,0.55)),
+    url('portada.jpg');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+    padding:60px 5%;
+    color:white;
+}
+.hero h1{
+    font-family:'Oswald',sans-serif;
+    font-size:3rem;
+    line-height:1.3;
+    max-width:700px;
+    font-weight:500;
+    text-transform:uppercase;
+}
+.hero h1 span{
+    color:#60baf1;
+}
+.frase-portada{
+    align-self:flex-end;
+    margin-top:130px;
+    font-size:1.2rem;
+    font-weight:600;
+}
+/* ESTILO GENERAL DE SECCIONES */
+section{
+    padding:65px 6%;
+}
+.titulo{
+    font-family:'Oswald',sans-serif;
+    font-size:2rem;
+    font-weight:500;
+    text-align:center;
+    color:#173f55;
+    margin-bottom:35px;
+    text-transform:uppercase;
+}
+.fondo-azul{
+    background-color:#d7ecff;
+}
+    .fondo-blanco{
+        background-color:#ffffff;
+    }
+    /* SOBRE EL PROYECTO */
+    .sobre{
+        background-color:#d7ecff;
+    }
+    .sobre-contenido{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:40px;
+        flex-wrap:wrap;
+    }
+    .sobre-texto{
+        flex:1;
+        min-width:280px;
+        max-width:550px;
+    }
+    .sobre-texto h3{
+        font-size:1.7rem;
+        color:#286c83;
+        margin-bottom:15px;
+    }
+    .sobre-texto p{
+        font-size:1.05rem;
+        text-align:justify;
+    }
+    .sobre-imagen{
+        flex:1;
+        min-width:280px;
+        max-width:480px;
+    }
+    .sobre-imagen img{
+        width:100%;
+        height:280px;
+        object-fit:cover;
+        border-radius:20px;
+    }
+    /* OBJETIVOS */
+    .objetivos{
+        background-color:#ffffff;
+    }
+    .objetivos-contenedor{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+        gap:35px;
+    }
+    .objetivo{
+        background-color:#a9d5e4;
+        border-radius:25px;
+        padding:35px;
+        min-height:300px;
+        border:2px solid #347c8a;
+    }
+    .objetivo h3{
+        font-family:'Oswald',sans-serif;
+        text-align:center;
+        font-size:1.5rem;
+        color:#17485a;
+        margin-bottom:20px;
+    }
+    .objetivo p{
+        text-align:center;
+        font-size:1.05rem;
+    }
+    /* FRASE FINAL */
+    .frase-final{
+        background-color:#d7ecff;
+        padding:65px 10%;
+        text-align:center;
+    }
+    .frase-final p{
+        font-size:1.3rem;
+        font-weight:800;
+        color:#45525d;
+    }
+    /* PIE DE PÁGINA */
+    footer{
+        background-color:#347c8a;
+        color:#ffffff;
+    }
+    .footer-contenido{
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        gap:35px;
+        padding:40px 6%;
+    }
+    .footer-columna{
+        padding-right:20px;
+        border-right:1px solid #c4e6ef;
+    }
+    .footer-columna:last-child{
+        border:none;
+    }
+    .footer-columna h3{
+        font-size:1.05rem;
+        margin-bottom:12px;
+    }
+    .footer-columna a{
+        display:block;
+        color:#e2f4fa;
+        text-decoration:none;
+        font-size:0.95rem;
+    }
+    .footer-columna a:hover{
+        text-decoration:underline;
+    }
+    .footer-columna p{
+        font-size:0.95rem;
+    }
+    .footer-final{
+        background-color:#214e59;
+        padding:12px;
+        text-align:center;
+        font-size:0.9rem;
+        color:#d7ecff;
+    }
+</style>
 </head>
 <body>
-
-    <!-- CAJA 1: ESCUDO INSTITUCIONAL -->
-    <header class="caja-escudo">
-        <img src="escudo.png" alt="Colegio Pedro Poveda">
-    </header>
-
-    <!-- CAJA 2: NOMBRE DEL COLEGIO Y DEPARTAMENTO -->
-    <div class="caja-titulo">
-        <strong>Colegio Pedro Poveda</strong>
-        <span>Departamento de Educación Orientativa</span>
-    </div>
-
-    <!-- CAJA 3: MENÚ DE NAVEGACIÓN CON SUBMENÚS -->
-    <nav class="caja-menu">
-        <ul class="menu-principal">
-            <li><a href="index.html">INICIO</a></li>
-
-            <!-- Submenú 1: Sobre el proyecto -->
-            <li class="tiene-submenu">
-                <a href="#sobre">SOBRE EL PROYECTO ▾</a>
-                <ul class="submenu">
-                    <li><a href="objetivos.html">Objetivos</a></li>
-                    <li><a href="mision-vision.html">Misión y Visión</a></li>
-                </ul>
-            </li>
-
-            <!-- Submenú 2: Actividades -->
-            <li class="tiene-submenu">
-                <a href="talleres.html">ACTIVIDADES ▾</a>
-                <ul class="submenu">
-                    <li><a href="talleres.html">1. Talleres</a></li>
-                    <li><a href="infografias.html">2. Infografías</a></li>
-                    <li><a href="encuestas.html">3. Encuestas y Entrevistas</a></li>
-                </ul>
-            </li>
-
-            <li><a href="#resultados">RESULTADOS</a></li>
-        </ul>
+<!-- ENCABEZADO -->
+<header>
+    <a href="#inicio" class="logo-area">
+        <img src="logo-pedro-poveda.png" alt="Logo Colegio Pedro Poveda">
+        <div>
+            <strong>Colegio Pedro Poveda</strong>
+            <span>Departamento de Educación Orientativa</span>
+        </div>
+    </a>
+    <nav>
+        <a href="#inicio">INICIO</a>
+        <a href="#sobre">SOBRE EL PROYECTO</a>
+        <a href="#objetivo">OBJETIVOS</a>
+        <a href="#mision">MISIÓN</a>
+        <a href="#vision">VISIÓN</a>
+        <a href="#actividades">ACTIVIDADES</a>
+        <a href="#resultados">RESULTADOS</a>
     </nav>
-
-    <!-- CAJA 4: PORTADA PRINCIPAL CON IMAGEN DIFUMINADA (portada.jpg) -->
-    <section class="caja-banner">
-        <div class="banner-contenido">
-            <!-- Título principal a la izquierda tal como en tu diseño -->
-            <h1 class="banner-titulo">
-                IMPLEMENTACIÓN DE NORMAS EN LA<br>
-                <span class="texto-celeste">PRÁCTICA PEDAGÓGICA</span><br>
-                DEL AULA
-            </h1>
-
-            <!-- Lema institucional abajo a la derecha -->
-            <p class="banner-lema">
-                EDUCAR SIN HUMILLAR, APRENDER SIN MIEDO
+</header>
+<!-- PORTADA -->
+<section id="inicio" class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('portadaPP.jpeg'); background-size: cover; background-position: center;">
+  <h1>
+    IMPLEMENTACIÓN DE NORMAS EN LA
+    <span>PRÁCTICA PEDAGÓGICA</span> DEL AULA
+  </h1>
+  <p class="frase-portada">
+    EDUCAR SIN HUMILLAR, APRENDER SIN MIEDO
+  </p>
+</section>
+<!-- SOBRE EL PROYECTO -->
+<section id="sobre" class="sobre">
+    <h2 class="titulo">SOBRE EL PROYECTO</h2>
+    <div class="sobre-contenido">
+        <div class="sobre-texto">
+            <h3>¿De qué trata nuestro proyecto?</h3>
+            <p>
+                Este proyecto busca promover la implementación
+                de normas de convivencia en la práctica pedagógica
+                del aula, fortaleciendo el respeto, el diálogo y
+                la comprensión entre docentes y estudiantes.
+                Pretende contribuir a la construcción de un
+                ambiente educativo seguro, donde todos puedan
+                aprender y expresarse sin miedo ni humillaciones.
             </p>
         </div>
-    </section>
-
-    <!-- CAJA 5: SECCIÓN ¿DE QUÉ TRATA NUESTRO PROYECTO? (BOCETO GPT) -->
-    <section id="sobre" class="caja-sobre">
-        <h2 class="titulo-seccion">SOBRE EL PROYECTO</h2>
-
-        <div class="sobre-contenido">
-            <div class="sobre-texto">
-                <h3>¿De qué trata nuestro proyecto?</h3>
-                <p>
-                    Este proyecto busca promover la implementación
-                    de normas de convivencia en la práctica pedagógica
-                    del aula, fortaleciendo el respeto, el diálogo y
-                    la comprensión entre docentes y estudiantes.
-                    Pretende contribuir a la construcción de un
-                    ambiente educativo seguro, donde todos puedan
-                    aprender y expresarse sin miedo ni humillaciones.
-                </p>
-
-                <!-- Botón discreto para función .toggle() de jQuery -->
-                <button id="btn-info-extra" class="btn-secundario">Ver enfoque del estudio</button>
-                <div id="info-extra" class="caja-extra">
-                    <p>Investigación de campo realizada en el nivel secundario del Colegio Pedro Poveda junto al Departamento de Educación Orientativa.</p>
-                </div>
-            </div>
-
-            <div class="sobre-imagen">
-                <img src="reunion-docentes.jpg" alt="Reunión de docentes">
-            </div>
+        <div class="sobre-imagen">
+            <img src="reunion-docentes.jpg" alt="Reunión de docentes">
         </div>
-    </section>
-
-    <!-- CAJA 6: SECCIÓN RESULTADOS (CUADRÍCULA 2x2 Y FRASE FINAL) -->
-    <section id="resultados" class="caja-resultados">
-        <h2 class="titulo-resultados">RESULTADOS</h2>
-
-        <div class="resultados-contenedor">
-            <div class="resultado">
-                <strong>2</strong>
-                <span>Talleres Realizados</span>
-            </div>
-
-            <div class="resultado">
-                <strong>9</strong>
-                <span>Docentes Participantes</span>
-            </div>
-
-            <div class="resultado">
-                <strong>20</strong>
-                <span>Infografías Elaboradas</span>
-            </div>
-
-            <div class="resultado">
-                <strong>22</strong>
-                <span>Experiencias Registradas</span>
-            </div>
-        </div>
-
-        <p class="frase-resultados">
-            "Construyendo un ambiente escolar seguro, basado en el respeto y el diálogo constante."
-        </p>
-    </section>
-
-    <!-- CAJAS 7, 8 Y 9: FOOTER DE 3 COLUMNAS -->
-    <footer class="caja-footer1 footer-columna">
-        <h3>Explorar</h3>
-        <a href="index.html">Inicio</a>
-        <a href="index.html#sobre">Sobre el proyecto</a>
-        <a href="mision-vision.html">Normas de convivencia</a>
-        <a href="talleres.html">Actividades</a>
-    </footer>
-
-    <footer class="caja-footer2 footer-columna">
-        <h3>Información</h3>
-        <a href="infografias.html">Galería de evidencias</a>
-        <a href="index.html#resultados">Resultados</a>
-        <a href="encuestas.html">Recursos educativos</a>
-        <a href="objetivos.html">Integrantes</a>
-    </footer>
-
-    <footer class="caja-footer3 footer-columna">
-        <h3>Información institucional</h3>
-        <p>Cochabamba, Bolivia</p>
-        <p>Colegio Pedro Poveda</p>
-        <p>Equipo responsable del proyecto</p>
-    </footer>
-
-    <!-- CAJA 10: DERECHOS RESERVADOS -->
-    <div class="caja-footer-final">
-        <p>© 2026 Colegio Pedro Poveda. Proyecto educativo.</p>
-        <p>Todos los derechos reservados.</p>
     </div>
-
+</section>
+<!-- OBJETIVOS -->
+<section id="objetivo" class="objetivos">
+    <h2 class="titulo">OBJETIVOS DEL PROYECTO</h2>
+    <div class="objetivos-contenedor">
+        <div class="objetivo">
+            <h3>OBJETIVO GENERAL</h3>
+            <p>
+                Proponer normas de convivencia armónica en la
+                práctica pedagógica docente-estudiante en el
+                colegio Pedro Poveda mediante un trabajo de
+                investigación de campo.
+            </p>
+        </div>
+        <div class="objetivo">
+            <h3>OBJETIVOS ESPECÍFICOS</h3>
+            <p>
+                Obtener información sobre la magnitud del problema
+                en el departamento de orientación del colegio
+                Pedro Poveda mediante una entrevista a la
+                Lic. Mónica.
+                <br><br>
+                Identificar situaciones y experiencias personales
+                de los estudiantes del colegio Pedro Poveda a
+                través de encuestas a personas del nivel secundario.
+                <br><br>
+                Evaluar los cambios en la relación docente/estudiante
+                mediante una segunda investigación de campo en
+                el nivel secundario.
+            </p>
+        </div>
+    </div>
+</section>
+<!-- FRASE FINAL -->
+<section class="frase-final">
+    <p>
+        "Construyendo un ambiente escolar seguro, basado en
+        el respeto y el diálogo constante."
+    </p>
+</section>
+<!-- PIE DE PÁGINA -->
+<footer>
+    <div class="footer-contenido">
+        <div class="footer-columna">
+            <h3>Explorar</h3>
+            <a href="#inicio">Inicio</a>
+            <a href="#sobre">Sobre el proyecto</a>
+            <a href="#mision">Misión y Visión</a>
+        </div>
+        <div class="footer-columna">
+            <h3>Información</h3>
+            <a href="#actividades">Galería de evidencias</a>
+            <a href="#resultados">Resultados</a>
+            <a href="#actividades">Actividades</a>
+        </div>
+        <div class="footer-columna">
+            <h3>Información institucional</h3>
+            <p>Cochabamba, Bolivia</p>
+            <p>Colegio Pedro Poveda</p>
+            <p>Equipo responsable del proyecto</p>
+        </div>
+    </div>
+    <div class="footer-final">
+        <p>©️ 2026 Colegio Pedro Poveda. Proyecto educativo.</p>
+    </div>
+</footer>
 </body>
 </html>
